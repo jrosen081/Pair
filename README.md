@@ -4,12 +4,21 @@ This is a Java library in which you can do a Pair matching. This is similar to a
 # How to use:
 
 ```java
+  /* Usage of Pairs */
   List<Pair<Integer,String>> list = new ArrayList();
   list.add(new Pair<>(7, "Test 1"));
   list.add(new Pair<>(3, "Test 2"));
   list.stream().filter(pair -> pair.first == 3); //Pair<>(3, "Test 2")
   list.stream().map(pair -> pair.first + " " + pair.second).forEach(System.out::println); //Prints out all of the pairs
   list.stream().sorted(); //Pair<>(3, "Test 2"), Pair<>(7, "Test 1")
+  Pair<Integer, String> swapPair = new Pair<>(12, "Swap");
+  swapPair.swap().printOut(); //Prints out the pair, but with the String first
+  
+  /* Usage of Map To Pair */
+  Map<Integer, String> testMap = new HashMap<>();
+  testMap.put(7, "Test 1");
+  testMap.put(3, "Test 2");
+  MapToPairList.execute(testMap).forEach(Pair::printOut); //Converts the map to a list of pair objects
   ```
  
 ## Features:
@@ -19,3 +28,4 @@ This is a Java library in which you can do a Pair matching. This is similar to a
 4. Usable with Stream API within a List
 5. Inferred Type After the first declaration
 6. Can use any type for it since it uses generics
+7. Convertable from Map to List of Pairs
